@@ -122,6 +122,15 @@ if (shcut == "sort") {
   y.value = "";
   finished = "done";
 }
+if (shcut == "imgedit") {
+
+p = '<iframe width=80% height=600 src="imgedit/index.html" frameborder="0" allowfullscreen></iframe>';
+o.innerHTML = p;
+
+finished = "done";
+}
+
+
 
 
 if (shcut == "ucase") {
@@ -313,8 +322,8 @@ if (finished == "") {
             <input class="searchbox"  style="display:none;" type="text" value="" autofocus="autofocus" autocomplete="off" id="StartPg">
             <input class="button" type="submit" style="display:none;" value="" onclick="return StartPgSearch(document.getElementById('StartPg').value)">
         </form>
-    </div>
-    <div style="font-family: 'Verdana', cursive;color:white;  position: relative; top:270px" id="output">&nbsp;</div>
+    </div><center>
+    <div style="font-family: 'Verdana', cursive;color:white;" id="output">&nbsp;</div></center>
     </div>
 
     <div id="container" style="color:white;margin: 0 auto; width: 300px; padding: 20px;">
@@ -331,3 +340,7 @@ if (finished == "") {
   </div>
   </body>
 </html>
+
+
+
+
