@@ -1,0 +1,26 @@
+<html>
+  <body style="background-color: black" onload="var geturl = location.href; if (/\?/.test(geturl) == true) { var args = /\?(.*)/.exec(geturl)[1]; args=/\+/.test(args)?args.replace(/\+/g,' ').replace(/\s+$/,''):args; StartPgSearch(decodeURIComponent(args)); finished = 'done';}">
+
+    <div class="searchcontainer" id="ybox" >
+        <form>
+            <input class="searchbox"  style="display:none;" type="text" value="" autofocus="autofocus" autocomplete="off" id="StartPg">
+            <input class="button" type="submit" style="display:none;" value="" onclick="return StartPgSearch(document.getElementById('StartPg').value)">
+        </form>
+    </div>
+    <div style="font-family: 'Verdana', cursive;color:white;  position: relative; top:270px" id="output">&nbsp;</div>
+    </div>
+
+    <div id="container" style="color:white;margin: 0 auto; width: 300px; padding: 20px;">
+    <div id="timer" style="color:white;display:none; position:absolute;">
+      <span style="color:white;font-size:small; float:right; cursor:pointer;" onclick='clearTimer();' title="click to close">x</span><br>
+      <center>
+        <span id="hour">00</span>:<span id="min">00</span>:<span id="sec">00</span><br><br>
+        <input type="button" style="background-color: white; color:black;border:none;"class="button" id="start" onClick="stopWatch()" accesskey='s' title="Shift+Alt+S" value="Start">
+        <input type="button" class="button" id="pause" onClick="pause()" accesskey='p' title="Shift+Alt+P" value="Pause">
+        <input type="button" class="button" id="play" onClick="play()" accesskey='o' title="Shift+Alt+O" value="Continue">
+        <input type="button" class="button" id="reset" onClick="reset()" accesskey='r' title="Shift+Alt+R" value="Reset">
+      </center>
+    </div>
+  </div>
+  </body>
+</html>
