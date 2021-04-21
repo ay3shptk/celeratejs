@@ -4,15 +4,15 @@
 var neweng = ["g"," https://www.google.com/search?q=%s","https://google.com/" , "g" , "https://www.google.com/search?q=%s" , "https://google.com/" , "img" , "https://www.google.com/search?tbm=isch&q=%s" , "https://images.google.com/" , "gmail" , "https://mail.google.com/mail/u/0/#search/%s" , "https://gmail.com/" , "drive" , "https://drive.google.com/#search/%s" , "https://drive.google.com/" , "translate" , "https://translate.google.com/#auto/en/%s" , "https://translate.google.com" , "tweb" , "https://translate.google.com/translate?u=%s" , "https://translate.google.com" , "books" , "https://books.google.com/books?q=%s&btnG=Search+Books" , "https://books.google.com" , "/" , "https://google.com/search?q=%s&btnI=I%27m+Feeling+Lucky" , "https://google.com" , "maps" , "https://maps.google.com/maps?q=%s&output=classic" , "https://maps.google.com" , "time" , "https://www.timeanddate.com/worldclock/results.html?query=%s" , "https://timeanddate.com/worldclock" , "weather" , "https://openweathermap.org/find?q=%s" , "https://openweathermap.org/" , "whois" , "https://www.whois.sc/%s" , "https://whois.sc" , "w" , "https://en.wikipedia.org/?search=%s" , "https://en.wikipedia.org/" , "news" , "https://news.google.com/news?q=%s" , "https://news.google.com" , "yt" , "https://www.youtube.com/results?search_type=&search_query=%s&aq=f" , "https://www.youtube.com/" , "clipart" , "https://openclipart.org/search/?query=%s" , "https://openclipart.org/" , "cache" , "https://google.com/search?q=cache:%s&strip=1" , "https://google.com" , "ynews" , "https://news.search.yahoo.com/search?p=%s" , "https://news.yahoo.com/" , "ud" , "https://www.urbandictionary.com/define.php?term=%s" , "https://www.urbandictionary.com/" , "dic" , "https://dictionary.reference.com/browse/%s" , "https://dictionary.com/" , "thes" , "https://www.wordreference.com/thesaurus/%s" , "https://www.wordreference.com/thesaurus/" , "r" , "https://reddit.com/r/%s" , "https://reddit.com" , "ddg" , "https://duckduckgo.com/?q=%s" , "https://duckduckgo.com/" , "ext" , "https://filext.com/file-extension/%s" , "https://filext.com/" , "ebay" , "https://www.ebay.com/sch/i.html?_nkw=%s" , "https://www.ebay.com/" , "tw" , "https://twitter.com/%s" , "https://twitter.com/" , "twt" , "https://twitter.com/search?q=%s" , "https://twitter.com/search-advanced" , "imgur" , "https://imgur.com/search?q=%s" , "https://imgur.com/" , "pdf" , "https://www.google.com/search?q=filetype:pdf+%s" , "https://www.google.com/search?q=filetype:pdf" , "gsite" , "https://www.google.com/search?q=site:%s" , "https://google.com/" , "hn" , "https://hn.algolia.com/?q=%s" , "https://news.ycombinator.com/" , "whow" , "https://www.wikihow.com/?search=%s" , "https://www.wikihow.com/" , "gh" , "https://github.com/search?q=%s" , "https://github.com/" , "git" , "https://github.com/%s" , "https://github.com/" , "db" , "https://www.dropbox.com/home/%s" , "https://dropbox.com" , "ymail" , "" , "https://mail.yahoo.com" , "mail" , "" , "https://www.mail.com/" , "hmail" , "" , "https://hotmail.com" , "omail" , "" , "https://outlook.com" , "dd" , "https://downdetector.com/search/?q=%s" , "https://downdetector.com/" , "down" , "https://www.downforeveryoneorjustme.com/%s" , "https://www.downforeveryoneorjustme.com/" , "ip" , "" , "https://www.whatismyip.com/" , "flights" , "https://www.google.ca/flights/#search;t=%s" , "https://flights.google.com/" , "trends" , "https://www.google.ca/trends/explore#q=%s" , "https://www.google.com/trends/" , "sp" , "https://startpage.com/do/search?query=%s" , "https://startpage.com/" , "mo" , "https://www.google.com/gwt/n?u=%s" , "https://www.google.com/" , "stonks" , "https://finance.yahoo.com/quote/%s" , "https://finance.yahoo.com/" , "medium" , "https://medium.com/search?q=%s" , "https://medium.com/" ];
 
 function initiate(input) {
-var searchlc = input.toLowerCase().replace(/[\s\+]$/, "");
+var lowcase = input.toLowerCase().replace(/[\s\+]$/, "");
 
 var finished = "";
 
 var o = document.getElementById("output");
 var y = document.getElementById("StartPg");
-var shcut = searchlc.replace(/^([>a-z]+) .*/,"$1");
-var sterm = input.replace(/[\s\+]+$/, "").replace(/^[>A-Za-z]+ (.*)/,"$1");
-var stermlc = sterm.toLowerCase();
+var shortcut = lowcase.replace(/^([>a-z]+) .*/,"$1");
+var term = input.replace(/[\s\+]+$/, "").replace(/^[>A-Za-z]+ (.*)/,"$1");
+var termlc = term.toLowerCase();
 
 addr = "";
 loc = "";
@@ -22,8 +22,8 @@ if (/^((https*|ftp|file|chrome):\/\/)|(about:)/.test(input)) {
   finished = "done";
 }
 
-if (shcut == "qr") {
-  p = '<img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data='+ sterm + '" height="150" width="150">';
+if (shortcut == "qr") {
+  p = '<img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data='+ term + '" height="150" width="150">';
   o.innerHTML = p;
   finished = "done";
 }
@@ -33,88 +33,88 @@ if (/^\!/.test(input)) {
   window.location=addr;
   finished = "done";
 }
-if (shcut == "c") {
-  o.innerHTML = eval(sterm.replace(/[a-zA-Z]/g, "").replace(/([\d\.]+)\^([\d\.]+)/g, "Math.pow($1,$2)").replace(/~([\d\.]+)/g, "Math.round($1)"));
+if (shortcut == "c") {
+  o.innerHTML = eval(term.replace(/[a-zA-Z]/g, "").replace(/([\d\.]+)\^([\d\.]+)/g, "Math.pow($1,$2)").replace(/~([\d\.]+)/g, "Math.round($1)"));
   finished = "done";
 }
 
-if (shcut == "rand") {
-  if (sterm == "git") {
+if (shortcut == "rand") {
+  if (term == "git") {
     randgit();
-  } else if (sterm == "img") {
+  } else if (term == "img") {
     window.location = "https://imgur.com/random";
   } else {
-    var rfloor = sterm.replace(/[^\d]/g, "");
+    var rfloor = term.replace(/[^\d]/g, "");
     rfloor == "" ? rfloor = 101 : rfloor = parseInt(rfloor) + 1;
     o.innerHTML = Math.floor(Math.random()*rfloor);
   }
   finished = "done";
 }
 
-if (shcut == "sort") {
-  if (/\s/.test(searchlc) == false) {
+if (shortcut == "sort") {
+  if (/\s/.test(lowcase) == false) {
     o.innerHTML = "Please input some text to sort.";
   } else {
-    var d = delimit(sterm);
+    var d = delimit(term);
     o.innerHTML = d.sort().join("<br>");
   }
   y.value = "";
   finished = "done";
 }
-if (shcut == "imgedit") {
+if (shortcut == "imgedit") {
 p = '<iframe width=80% height=600 src="imgedit/index.html" frameborder="0" ></iframe>';
 o.innerHTML = p;
 finished = "done";
 }
 
-if (shcut == "txtedit")  {
+if (shortcut == "txtedit")  {
 
 p = '<iframe width=80% height=600 src="txtedit/index.html" frameborder="0" ></iframe>';
 o.innerHTML = p;
 
 finished = "done";
 } 
-if (shcut == "color" ) {
+if (shortcut == "color" ) {
   p = '<iframe width=80% height="90%" src="color/index.html" frameborder="0" allowfullscreen></iframe>';
   o.innerHTML = p;
   finished = "done";
 }
 
-if (shcut == "ucase") {
-  if (/\s/.test(searchlc) == false) {
+if (shortcut == "ucase") {
+  if (/\s/.test(lowcase) == false) {
     o.innerHTML = "Please input some text to convert to upper case.";
   } else {
-    o.innerHTML = sterm.toUpperCase();
+    o.innerHTML = term.toUpperCase();
   }
   finished = "done";
 }
 
-if (shcut == "lcase") {
-  if (/\s/.test(searchlc) == false) {
+if (shortcut == "lcase") {
+  if (/\s/.test(lowcase) == false) {
     o.innerHTML = "Please input some text to convert to lower case.";
   } else {
-    o.innerHTML = sterm.toLowerCase();
+    o.innerHTML = term.toLowerCase();
   }
   finished = "done";
 }
 
-if (shcut == "caps") {
-  if (/\s/.test(searchlc) == false) {
+if (shortcut == "caps") {
+  if (/\s/.test(lowcase) == false) {
     o.innerHTML = "Please input some text to convert to initial caps.";
   } else {
-    o.innerHTML = sterm.toLowerCase().replace(/(^|\s+)(.)/g,function(_, a, l){return a+l.toUpperCase();});
+    o.innerHTML = term.toLowerCase().replace(/(^|\s+)(.)/g,function(_, a, l){return a+l.toUpperCase();});
   }
   finished = "done";
 }
 
-if (shcut == "wordcount") {
-  if (/\s/.test(searchlc) == false) {
+if (shortcut == "wordcount") {
+  if (/\s/.test(lowcase) == false) {
     o.innerHTML = "No text given";
-  } else if (/^\-c /.test(sterm) == true) {
-    c = sterm.replace(/^\-c /,"");
+  } else if (/^\-c /.test(term) == true) {
+    c = term.replace(/^\-c /,"");
     o.innerHTML = c.split(/./).length -1;
   } else {
-    var d = delimit(sterm);
+    var d = delimit(term);
     o.innerHTML = d.length;
   }
   y.value = "";
@@ -124,14 +124,14 @@ if (shcut == "wordcount") {
 
 
 
-if (shcut == "timer" || shcut == "stopwatch") {
+if (shortcut == "timer" || shortcut == "stopwatch") {
   timer();
 
   y.value = "";
   finished = "done";
 }
 
-if (shcut == "day" || shcut == "date" || shcut == "d") {
+if (shortcut == "day" || shortcut == "date" || shortcut == "d") {
   d = new Date();
   day = d.getDay().toString().replace(/0/,"Sunday").replace(/1/,"Monday").replace(/2/,"Tuesday").replace(/3/,"Wednesday").replace(/4/,"Thursday").replace(/5/,"Friday").replace(/6/,"Saturday");
   iso = d.toISOString().replace(/T.*/,"");
@@ -140,14 +140,14 @@ if (shcut == "day" || shcut == "date" || shcut == "d") {
 }
 
 for (var i = 0; i < neweng.length; i++) {
-  if (neweng[i] == shcut) {
+  if (neweng[i] == shortcut) {
     finished = "done";
-    if (shcut == stermlc && /\s/.test(searchlc) == false) {
+    if (shortcut == termlc && /\s/.test(lowcase) == false) {
       addr = neweng[i+2]
       window.location=addr;
     } else {
       loc = neweng[i+1]
-      addr = loc.replace(/%s/,sterm);
+      addr = loc.replace(/%s/,term);
       window.location=addr;
     }
   }
