@@ -1,6 +1,7 @@
 <html>
 <head>
 <script>
+var neweng = ["g", "https://www.google.com/search?q=%s", "https://google.com/", ]
 var engines = [
 {"n":"g", "a":"https://www.google.com/search?q=%s",  "f":"https://google.com/"},
 {"n":"img", "a":"https://www.google.com/search?tbm=isch&q=%s", "f":"https://images.google.com/"},
@@ -34,8 +35,7 @@ var engines = [
 {"n":"gsite", "a":"https://www.google.com/search?q=site:%s", "f":"https://google.com/"},
 {"n":"hn", "a":"https://hn.algolia.com/?q=%s", "f":"https://news.ycombinator.com/"},
 {"n":"whow", "a":"https://www.wikihow.com/?search=%s", "f":"https://www.wikihow.com/"},
-{"n":"gut", "a":"https://www.gutenberg.org/ebooks/search/?query=%s", "f":"https://www.gutenberg.org/"},
-{"n":"gh", "a":"https://github.com/search?q=%s", "f":"https://github.com/"},
+ {"n":"gh", "a":"https://github.com/search?q=%s", "f":"https://github.com/"},
 {"n":"git", "a":"https://github.com/%s", "f":"https://github.com/"},
 {"n":"db", "a":"https://www.dropbox.com/home/%s", "f":"https://dropbox.com"},
 {"n":"ymail", "a":"", "f":"https://mail.yahoo.com"},
@@ -188,14 +188,14 @@ if (shcut == "day" || shcut == "date" || shcut == "d") {
   finished = "done";
 }
 
-for (var i = 0; i < engines.length; i++) {
-  if (engines[i].n == shcut) {
+for (var i = 0; i < neweng.length; i++) {
+  if (neweng[i] == shcut) {
     finished = "done";
     if (shcut == stermlc && /\s/.test(searchlc) == false) {
-      addr = engines[i].f;
+      addr = neweng[i+2]
       window.location=addr;
     } else {
-      loc = engines[i].a;
+      loc = neweng[i+1]
       addr = loc.replace(/%s/,sterm);
       window.location=addr;
     }
