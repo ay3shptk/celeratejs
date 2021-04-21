@@ -4,42 +4,31 @@
 var engines = [
 {"n":"g", "a":"https://www.google.com/search?q=%s",  "f":"https://google.com/"},
 {"n":"img", "a":"https://www.google.com/search?tbm=isch&q=%s", "f":"https://images.google.com/"},
-{"n":"mail", "a":"https://mail.google.com/mail/u/0/#search/%s", "f":"https://gmail.com/"},
+{"n":"gmail", "a":"https://mail.google.com/mail/u/0/#search/%s", "f":"https://gmail.com/"},
 {"n":"drive", "a":"https://drive.google.com/#search/%s", "f":"https://drive.google.com/"},
 {"n":"translate", "a":"https://translate.google.com/#auto/en/%s", "f":"https://translate.google.com"},
-{"n":"turl", "a":"https://translate.google.com/translate?u=%s", "f":"https://translate.google.com"},
+{"n":"tweb", "a":"https://translate.google.com/translate?u=%s", "f":"https://translate.google.com"},
 {"n":"books", "a":"https://books.google.com/books?q=%s&btnG=Search+Books", "f":"https://books.google.com"},
-{"n":"go", "a":"https://google.com/search?q=%s&btnI=I%27m+Feeling+Lucky", "f":"https://google.com"},
-{"n":"map", "a":"https://maps.google.com/maps?q=%s&output=classic", "f":"https://maps.google.com"},
-{"n":"scholar", "a":"https://scholar.google.com/scholar?q=%s", "f":"https://scholar.google.com"},
-{"n":"time", "a":"https://www.timeanddate.com/worldclock/results.html?query=%s", "f":"https://timeanddate.com/worldclock"},
+{"n":"/", "a":"https://google.com/search?q=%s&btnI=I%27m+Feeling+Lucky", "f":"https://google.com"},
+{"n":"maps", "a":"https://maps.google.com/maps?q=%s&output=classic", "f":"https://maps.google.com"},
+ {"n":"time", "a":"https://www.timeanddate.com/worldclock/results.html?query=%s", "f":"https://timeanddate.com/worldclock"},
 {"n":"weather", "a":"https://openweathermap.org/find?q=%s", "f":"https://openweathermap.org/"},
-{"n":"archive", "a":"https://web.archive.org/web/*/%s", "f":"https://archive.org"},
-{"n":"whois", "a":"https://www.whois.sc/%s", "f":"https://whois.sc"},
+ {"n":"whois", "a":"https://www.whois.sc/%s", "f":"https://whois.sc"},
 {"n":"w", "a":"https://en.wikipedia.org/?search=%s", "f":"https://en.wikipedia.org/"},
-{"n":"wv", "a":"https://en.wikivoyage.org/?search=%s", "f":"https://en.wikivoyage.org/"},
-{"n":"wt", "a":"https://en.wiktionary.org/?search=%s", "f":"https://en.wiktionary.org/"},
-{"n":"wq", "a":"https://en.wikiquote.org/?search=%s", "f":"https://en.wikiquote.org/"},
-{"n":"wn", "a":"https://en.wikinews.org/?search=%s", "f":"https://en.wikinews.org/"},
-{"n":"ws", "a":"https://en.wikisource.org/?search=%s", "f":"https://en.wikisource.org/"},
 {"n":"news", "a":"https://news.google.com/news?q=%s", "f":"https://news.google.com"},
 {"n":"yt", "a":"https://www.youtube.com/results?search_type=&search_query=%s&aq=f", "f":"https://www.youtube.com/"},
-{"n":"play", "a":"https://play.google.com/store/search?q=%s&c=apps&price=1", "f":"https://play.google.com/"},
-{"n":"clipart", "a":"https://openclipart.org/search/?query=%s", "f":"https://openclipart.org/"},
+ {"n":"clipart", "a":"https://openclipart.org/search/?query=%s", "f":"https://openclipart.org/"},
 {"n":"cache", "a":"https://google.com/search?q=cache:%s&strip=1", "f":"https://google.com"},
-{"n":"cat", "a":"https://google.com/search?q=cache:%s&strip=1", "f":"https://google.com"},
-{"n":"ynews", "a":"https://news.search.yahoo.com/search?p=%s", "f":"https://news.yahoo.com/"},
-{"n":"olr", "a":"https://www.onelook.com/?w=*&loc=revfp2&clue=%s", "f":"https://www.onelook.com/reverse-dictionary.shtml"},
-{"n":"ud", "a":"https://www.urbandictionary.com/define.php?term=%s", "f":"https://www.urbandictionary.com/"},
+ {"n":"ynews", "a":"https://news.search.yahoo.com/search?p=%s", "f":"https://news.yahoo.com/"},
+ {"n":"ud", "a":"https://www.urbandictionary.com/define.php?term=%s", "f":"https://www.urbandictionary.com/"},
 {"n":"dic", "a":"https://dictionary.reference.com/browse/%s", "f":"https://dictionary.com/"},
 {"n":"thes", "a":"https://www.wordreference.com/thesaurus/%s", "f":"https://www.wordreference.com/thesaurus/"},
-{"n":"ted", "a":"https://www.ted.com/search?q=%s", "f":"https://ted.com"},
-{"n":"r", "a":"https://reddit.com/r/%s", "f":"https://reddit.com"},
+ {"n":"r", "a":"https://reddit.com/r/%s", "f":"https://reddit.com"},
 {"n":"ddg", "a":"https://duckduckgo.com/?q=%s", "f":"https://duckduckgo.com/"},
 {"n":"ext", "a":"https://filext.com/file-extension/%s", "f":"https://filext.com/"},
 {"n":"ebay", "a":"https://www.ebay.com/sch/i.html?_nkw=%s", "f":"https://www.ebay.com/"},
 {"n":"tw", "a":"https://twitter.com/%s", "f":"https://twitter.com/"},
-{"n":"tws", "a":"https://twitter.com/search?q=%s", "f":"https://twitter.com/search-advanced"},
+{"n":"twt", "a":"https://twitter.com/search?q=%s", "f":"https://twitter.com/search-advanced"},
 {"n":"imgur", "a":"https://imgur.com/search?q=%s", "f":"https://imgur.com/"},
 {"n":"pdf", "a":"https://www.google.com/search?q=filetype:pdf+%s", "f":"https://www.google.com/search?q=filetype:pdf"},
 {"n":"gsite", "a":"https://www.google.com/search?q=site:%s", "f":"https://google.com/"},
@@ -78,8 +67,7 @@ addr = "";
 loc = "";
 
 if (/^((https*|ftp|file|chrome):\/\/)|(about:)/.test(searchh)) {
-  addr = searchh;
-  window.location=addr;
+  window.location=searchh;
   finished = "done";
 }
 
@@ -98,12 +86,12 @@ if (shcut == "c") {
   o.innerHTML = eval(sterm.replace(/[a-zA-Z]/g, "").replace(/([\d\.]+)\^([\d\.]+)/g, "Math.pow($1,$2)").replace(/~([\d\.]+)/g, "Math.round($1)"));
   finished = "done";
 }
+
 if (shcut == "rand") {
   if (sterm == "git") {
     randgit();
   } else if (sterm == "img") {
-    var addr = "https://imgur.com/random";
-    window.location = addr;
+    window.location = "https://imgur.com/random";
   } else {
     var rfloor = sterm.replace(/[^\d]/g, "");
     rfloor == "" ? rfloor = 101 : rfloor = parseInt(rfloor) + 1;
@@ -123,12 +111,8 @@ if (shcut == "sort") {
   finished = "done";
 }
 if (shcut == "imgedit") {
-
-
 p = '<iframe width=80% height=600 src="imgedit/index.html" frameborder="0" ></iframe>';
-
 o.innerHTML = p;
-
 finished = "done";
 }
 
@@ -144,11 +128,6 @@ if (shcut == "color" ) {
   o.innerHTML = p;
   finished = "done";
 }
-
-
-
-
-
 
 if (shcut == "ucase") {
   if (/\s/.test(searchlc) == false) {
@@ -308,7 +287,7 @@ if (finished == "") {
         console.log(number);
 
         var xhr = new XMLHttpRequest();
-        xhr.open('GET', 'https://api.github.com/repositories?since=' + number, true);
+        xhr.open('GET', 'https://api.github.com/repositories', true);
         xhr.send();
 
         xhr.onreadystatechange = function(e){
