@@ -5,16 +5,14 @@ var neweng = ["g"," https://www.google.com/search?q=%s","https://google.com/" , 
 
 function initiate(input) {
 var lowcase = input.toLowerCase().replace(/[\s\+]$/, "");
-
-var finished = "";
+var done = "no";
 
 var o = document.getElementById("output");
-var y = document.getElementById("StartPg");
+var y = document.getElementById("celerate");
 var shortcut = lowcase.replace(/^([>a-z]+) .*/,"$1");
 var term = input.replace(/[\s\+]+$/, "").replace(/^[>A-Za-z]+ (.*)/,"$1");
 var termlc = term.toLowerCase();
 
-addr = "";
 loc = "";
 
 if (/^((https*|ftp|file|chrome):\/\/)|(about:)/.test(input)) {
@@ -29,8 +27,7 @@ if (shortcut == "qr") {
 }
 
 if (/^\!/.test(input)) {
-  addr = input.replace(/^\! */,"https://duckduckgo.com?q=!");
-  window.location=addr;
+  window.location=input.replace(/^\! */,"https://duckduckgo.com?q=!");;
   finished = "done";
 }
 if (shortcut == "c") {
@@ -143,12 +140,10 @@ for (var i = 0; i < neweng.length; i++) {
   if (neweng[i] == shortcut) {
     finished = "done";
     if (shortcut == termlc && /\s/.test(lowcase) == false) {
-      addr = neweng[i+2]
-      window.location=addr;
+      window.location=neweng[i+2];
     } else {
       loc = neweng[i+1]
-      addr = loc.replace(/%s/,term);
-      window.location=addr;
+      window.location=loc.replace(/%s/,term);;
     }
   }
 }
@@ -156,8 +151,7 @@ for (var i = 0; i < neweng.length; i++) {
 
 
 if (finished == "") {
-  addr = "https://google.com/search?q=" + input
-  window.location=addr;
+  window.location="https://google.com/search?q=" + input;
   finished = "done";
 }
 }
@@ -266,8 +260,8 @@ if (finished == "") {
 
     <div class="searchcontainer" id="ybox" >
         <form>
-            <input class="searchbox"  style="display:none;" type="text" value="" autofocus="autofocus" autocomplete="off" id="StartPg">
-            <input class="button" type="submit" style="display:none;" value="" onclick="return celerate(document.getElementById('StartPg').value)">
+            <input class="searchbox"  style="display:none;" type="text" value="" autofocus="autofocus" autocomplete="off" id="celerate">
+            <input class="button" type="submit" style="display:none;" value="" onclick="return celerate(document.getElementById('celerate').value)">
         </form>
     </div><center>
     <div style="font-family: 'Verdana', cursive;color:white;" id="output">&nbsp;</div></center>
