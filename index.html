@@ -1,163 +1,199 @@
 <html>
+
 <head>
-<script>
-var neweng = [ "g" , "https://www.google.com/search?q=%s" , "https://google.com/" , "img" , "https://www.google.com/search?tbm=isch&q=%s" , "https://images.google.com/" , "mail" , "https://opene.ml/s?email=%s" , "mailto:" ,  "translate" , "https://translate.google.com/#auto/en/%s" , "https://translate.google.com" , "tweb" , "https://translate.google.com/translate?u=%s" , "https://translate.google.com" , "maps" , "https://maps.google.com/maps?q=%s&output=classic" , "https://maps.google.com" , "time" , "https://www.timeanddate.com/worldclock/results.html?query=%s" , "https://timeanddate.com/worldclock" , "weather" , "https://openweathermap.org/find?q=%s" , "https://openweathermap.org/" , "whois" , "https://www.whois.sc/%s" , "https://whois.sc" , "w" , "https://en.wikipedia.org/?search=%s" , "https://en.wikipedia.org/" , "news" , "https://news.google.com/news?q=%s" , "https://news.google.com" , "yt" , "https://www.youtube.com/results?search_type=&search_query=%s&aq=f" , "https://www.youtube.com/" , "clipart" , "https://openclipart.org/search/?query=%s" , "https://openclipart.org/" , "cache" , "https://google.com/search?q=cache:%s&strip=1" , "https://google.com" , "ynews" , "https://news.search.yahoo.com/search?p=%s" , "https://news.yahoo.com/" , "ud" , "https://www.urbandictionary.com/define.php?term=%s" , "https://www.urbandictionary.com/" , "dic" , "https://dictionary.reference.com/browse/%s" , "https://dictionary.com/" , "thes" , "https://www.wordreference.com/thesaurus/%s" , "https://www.wordreference.com/thesaurus/" , "r" , "https://reddit.com/r/%s" , "https://reddit.com" , "ddg" , "https://duckduckgo.com/?q=%s" , "https://duckduckgo.com/" , "ext" , "https://filext.com/file-extension/%s" , "https://filext.com/" , "ebay" , "https://www.ebay.com/sch/i.html?_nkw=%s" , "https://www.ebay.com/" , "tw" , "https://twitter.com/%s" , "https://twitter.com/" , "twt" , "https://twitter.com/search?q=%s" , "https://twitter.com/search-advanced" , "imgur" , "https://imgur.com/search?q=%s" , "https://imgur.com/" , "pdf" , "https://www.google.com/search?q=filetype:pdf+%s" , "https://www.google.com/search?q=filetype:pdf" , "gsite" , "https://www.google.com/search?q=site:%s" , "https://google.com/" , "hn" , "https://hn.algolia.com/?q=%s" , "https://news.ycombinator.com/" , "whow" , "https://www.wikihow.com/?search=%s" , "https://www.wikihow.com/" , "gh" , "https://github.com/search?q=%s" , "https://github.com/" , "git" , "https://github.com/%s" , "https://github.com/" , "db" , "https://www.dropbox.com/home/%s" , "https://dropbox.com" ,   "dd" , "https://downdetector.com/search/?q=%s" , "https://downdetector.com/" , "ip" , "" , "https://www.whatismyip.com/" ,  "sp" , "https://startpage.com/do/search?query=%s" , "https://startpage.com/" ,  "stonks" , "https://finance.yahoo.com/quote/%s" , "https://finance.yahoo.com/"];
-function initiate(input) {
-var lowcase = input.toLowerCase().replace(/[\s\+]$/, "");
-var done = "no";
+  <script>
+    var neweng = ["g", "https://www.google.com/search?q=%s", "https://google.com/", "img",
+      "https://www.google.com/search?tbm=isch&q=%s", "https://images.google.com/", "mail",
+      "https://opene.ml/s?email=%s", "mailto:", "translate", "https://translate.google.com/#auto/en/%s",
+      "https://translate.google.com", "tweb", "https://translate.google.com/translate?u=%s",
+      "https://translate.google.com", "maps", "https://maps.google.com/maps?q=%s&output=classic",
+      "https://maps.google.com", "time", "https://www.timeanddate.com/worldclock/results.html?query=%s",
+      "https://timeanddate.com/worldclock", "weather", "https://openweathermap.org/find?q=%s",
+      "https://openweathermap.org/", "whois", "https://www.whois.sc/%s", "https://whois.sc", "w",
+      "https://en.wikipedia.org/?search=%s", "https://en.wikipedia.org/", "news", "https://news.google.com/news?q=%s",
+      "https://news.google.com", "yt", "https://www.youtube.com/results?search_type=&search_query=%s&aq=f",
+      "https://www.youtube.com/", "clipart", "https://openclipart.org/search/?query=%s", "https://openclipart.org/",
+      "cache", "https://google.com/search?q=cache:%s&strip=1", "https://google.com", "ynews",
+      "https://news.search.yahoo.com/search?p=%s", "https://news.yahoo.com/", "ud",
+      "https://www.urbandictionary.com/define.php?term=%s", "https://www.urbandictionary.com/", "dic",
+      "https://dictionary.reference.com/browse/%s", "https://dictionary.com/", "thes",
+      "https://www.wordreference.com/thesaurus/%s", "https://www.wordreference.com/thesaurus/", "r",
+      "https://reddit.com/r/%s", "https://reddit.com", "ddg", "https://duckduckgo.com/?q=%s",
+      "https://duckduckgo.com/", "ext", "https://filext.com/file-extension/%s", "https://filext.com/", "ebay",
+      "https://www.ebay.com/sch/i.html?_nkw=%s", "https://www.ebay.com/", "tw", "https://twitter.com/%s",
+      "https://twitter.com/", "twt", "https://twitter.com/search?q=%s", "https://twitter.com/search-advanced",
+      "imgur", "https://imgur.com/search?q=%s", "https://imgur.com/", "pdf",
+      "https://www.google.com/search?q=filetype:pdf+%s", "https://www.google.com/search?q=filetype:pdf", "gsite",
+      "https://www.google.com/search?q=site:%s", "https://google.com/", "hn", "https://hn.algolia.com/?q=%s",
+      "https://news.ycombinator.com/", "whow", "https://www.wikihow.com/?search=%s", "https://www.wikihow.com/", "gh",
+      "https://github.com/search?q=%s", "https://github.com/", "git", "https://github.com/%s", "https://github.com/",
+      "db", "https://www.dropbox.com/home/%s", "https://dropbox.com", "dd", "https://downdetector.com/search/?q=%s",
+      "https://downdetector.com/", "ip", "", "https://www.whatismyip.com/", "sp",
+      "https://startpage.com/do/search?query=%s", "https://startpage.com/", "stonks",
+      "https://finance.yahoo.com/quote/%s", "https://finance.yahoo.com/"
+    ];
 
-var o = document.getElementById("output");
-var y = document.getElementById("celerate");
-var shortcut = lowcase.replace(/^([>a-z]+) .*/,"$1");
-var term = input.replace(/[\s\+]+$/, "").replace(/^[>A-Za-z]+ (.*)/,"$1");
-var termlc = term.toLowerCase();
+    function initiate(input) {
+      var lowcase = input.toLowerCase().replace(/[\s\+]$/, "");
+      var done = "no";
 
-loc = "";
+      var o = document.getElementById("output");
+      var y = document.getElementById("celerate");
+      var shortcut = lowcase.replace(/^([>a-z]+) .*/, "$1");
+      var term = input.replace(/[\s\+]+$/, "").replace(/^[>A-Za-z]+ (.*)/, "$1");
+      var termlc = term.toLowerCase();
 
-if (/^((https*|ftp|file|chrome):\/\/)|(about:)/.test(input)) {
-  window.location=input;
-  done = "done";
-}
+      loc = "";
 
-if (shortcut == ">"){
-  window.location = "https://google.com/search?q=" + term + "&btnI=1"
-  done = "done"
-}
-if (shortcut == "qr") {
-  p = '<img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data='+ term + '" height="150" width="150">';
-  o.innerHTML = p;
-  done = "done";
-}
+      if (/^((https*|ftp|file|chrome):\/\/)|(about:)/.test(input)) {
+        window.location = input;
+        done = "done";
+      }
 
-if (/^\!/.test(input)) {
-  window.location=input.replace(/^\! */,"https://duckduckgo.com?q=!");;
-  done = "done";
-}
-if (shortcut == "c") {
-  o.innerHTML = eval(term.replace(/[a-zA-Z]/g, "").replace(/([\d\.]+)\^([\d\.]+)/g, "Math.pow($1,$2)").replace(/~([\d\.]+)/g, "Math.round($1)"));
-  done = "done";
-}
+      if (shortcut == ">") {
+        window.location = "https://google.com/search?q=" + term + "&btnI=1"
+        done = "done"
+      }
+      if (shortcut == "qr") {
+        p = '<img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=' + term +
+          '" height="150" width="150">';
+        o.innerHTML = p;
+        done = "done";
+      }
 
-if (shortcut == "rand") {
-  if (term == "git") {
-    randgit();
-  } else if (term == "img") {
-    window.location = "https://imgur.com/random";
-  } else {
-    var rfloor = term.replace(/[^\d]/g, "");
-    rfloor == "" ? rfloor = 101 : rfloor = parseInt(rfloor) + 1;
-    o.innerHTML = Math.floor(Math.random()*rfloor);
-  }
-  done = "done";
-}
+      if (/^\!/.test(input)) {
+        window.location = input.replace(/^\! */, "https://duckduckgo.com?q=!");;
+        done = "done";
+      }
+      if (shortcut == "c") {
+        o.innerHTML = eval(term.replace(/[a-zA-Z]/g, "").replace(/([\d\.]+)\^([\d\.]+)/g, "Math.pow($1,$2)").replace(
+          /~([\d\.]+)/g, "Math.round($1)"));
+        done = "done";
+      }
 
-if (shortcut == "sort") {
-  if (/\s/.test(lowcase) == false) {
-    o.innerHTML = "Please input some text to sort.";
-  } else {
-    var d = delimit(term);
-    o.innerHTML = d.sort().join("<br>");
-  }
-  y.value = "";
-  done = "done";
-}
-if (shortcut == "imgedit") {
-p = '<iframe width=80% height=600 src="imgedit/index.html" frameborder="0" ></iframe>';
-o.innerHTML = p;
-done = "done";
-}
+      if (shortcut == "rand") {
+        if (term == "git") {
+          randgit();
+        } else if (term == "img") {
+          window.location = "https://imgur.com/random";
+        } else {
+          var rfloor = term.replace(/[^\d]/g, "");
+          rfloor == "" ? rfloor = 101 : rfloor = parseInt(rfloor) + 1;
+          o.innerHTML = Math.floor(Math.random() * rfloor);
+        }
+        done = "done";
+      }
 
-if (shortcut == "txtedit")  {
+      if (shortcut == "sort") {
+        if (/\s/.test(lowcase) == false) {
+          o.innerHTML = "Please input some text to sort.";
+        } else {
+          var d = delimit(term);
+          o.innerHTML = d.sort().join("<br>");
+        }
+        y.value = "";
+        done = "done";
+      }
+      if (shortcut == "imgedit") {
+        p = '<iframe width=80% height=600 src="imgedit/index.html" frameborder="0" ></iframe>';
+        o.innerHTML = p;
+        done = "done";
+      }
 
-p = '<iframe width=80% height=600 src="txtedit/index.html" frameborder="0" ></iframe>';
-o.innerHTML = p;
+      if (shortcut == "txtedit") {
 
-done = "done";
-} 
-if (shortcut == "color" ) {
-  p = '<iframe width=80% height="90%" src="color/index.html" frameborder="0" allowfullscreen></iframe>';
-  o.innerHTML = p;
-  done = "done";
-}
+        p = '<iframe width=80% height=600 src="txtedit/index.html" frameborder="0" ></iframe>';
+        o.innerHTML = p;
 
-if (shortcut == "ucase") {
-  if (/\s/.test(lowcase) == false) {
-    o.innerHTML = "Please input some text to convert to upper case.";
-  } else {
-    o.innerHTML = term.toUpperCase();
-  }
-  done = "done";
-}
+        done = "done";
+      }
+      if (shortcut == "color") {
+        p = '<iframe width=80% height="90%" src="color/index.html" frameborder="0" allowfullscreen></iframe>';
+        o.innerHTML = p;
+        done = "done";
+      }
 
-if (shortcut == "lcase") {
-  if (/\s/.test(lowcase) == false) {
-    o.innerHTML = "Please input some text to convert to lower case.";
-  } else {
-    o.innerHTML = term.toLowerCase();
-  }
-  done = "done";
-}
+      if (shortcut == "ucase") {
+        if (/\s/.test(lowcase) == false) {
+          o.innerHTML = "Please input some text to convert to upper case.";
+        } else {
+          o.innerHTML = term.toUpperCase();
+        }
+        done = "done";
+      }
 
-if (shortcut == "caps") {
-  if (/\s/.test(lowcase) == false) {
-    o.innerHTML = "Please input some text to convert to initial caps.";
-  } else {
-    o.innerHTML = term.toLowerCase().replace(/(^|\s+)(.)/g,function(_, a, l){return a+l.toUpperCase();});
-  }
-  done = "done";
-}
+      if (shortcut == "lcase") {
+        if (/\s/.test(lowcase) == false) {
+          o.innerHTML = "Please input some text to convert to lower case.";
+        } else {
+          o.innerHTML = term.toLowerCase();
+        }
+        done = "done";
+      }
 
-if (shortcut == "wordcount") {
-  if (/\s/.test(lowcase) == false) {
-    o.innerHTML = "No text given";
-  } else if (/^\-c /.test(term) == true) {
-    c = term.replace(/^\-c /,"");
-    o.innerHTML = c.split(/./).length -1;
-  } else {
-    var d = delimit(term);
-    o.innerHTML = d.length;
-  }
-  y.value = "";
-  done = "done";
-}
+      if (shortcut == "caps") {
+        if (/\s/.test(lowcase) == false) {
+          o.innerHTML = "Please input some text to convert to initial caps.";
+        } else {
+          o.innerHTML = term.toLowerCase().replace(/(^|\s+)(.)/g, function (_, a, l) {
+            return a + l.toUpperCase();
+          });
+        }
+        done = "done";
+      }
+
+      if (shortcut == "wordcount") {
+        if (/\s/.test(lowcase) == false) {
+          o.innerHTML = "No text given";
+        } else if (/^\-c /.test(term) == true) {
+          c = term.replace(/^\-c /, "");
+          o.innerHTML = c.split(/./).length - 1;
+        } else {
+          var d = delimit(term);
+          o.innerHTML = d.length;
+        }
+        y.value = "";
+        done = "done";
+      }
 
 
 
 
-if (shortcut == "timer" || shortcut == "stopwatch") {
-  timer();
+      if (shortcut == "timer" || shortcut == "stopwatch") {
+        timer();
 
-  y.value = "";
-  done = "done";
-}
+        y.value = "";
+        done = "done";
+      }
 
-if (shortcut == "day" || shortcut == "date" || shortcut == "d") {
-  d = new Date();
-  day = d.getDay().toString().replace(/0/,"Sunday").replace(/1/,"Monday").replace(/2/,"Tuesday").replace(/3/,"Wednesday").replace(/4/,"Thursday").replace(/5/,"Friday").replace(/6/,"Saturday");
-  iso = d.toISOString().replace(/T.*/,"");
-  o.innerHTML = day + "<br><div>(" + iso + ")</div>";
-  done = "done";
-}
+      if (shortcut == "day" || shortcut == "date" || shortcut == "d") {
+        d = new Date();
+        day = d.getDay().toString().replace(/0/, "Sunday").replace(/1/, "Monday").replace(/2/, "Tuesday").replace(/3/,
+          "Wednesday").replace(/4/, "Thursday").replace(/5/, "Friday").replace(/6/, "Saturday");
+        iso = d.toISOString().replace(/T.*/, "");
+        o.innerHTML = day + "<br><div>(" + iso + ")</div>";
+        done = "done";
+      }
 
-for (var i = 0; i < neweng.length; i++) {
-  if (neweng[i] == shortcut) {
-    done = "done";
-    if (shortcut == termlc && /\s/.test(lowcase) == false) {
-      window.location=neweng[i+2];
-    } else {
-      loc = neweng[i+1]
-      window.location=loc.replace(/%s/,term);;
+      for (var i = 0; i < neweng.length; i++) {
+        if (neweng[i] == shortcut) {
+          done = "done";
+          if (shortcut == termlc && /\s/.test(lowcase) == false) {
+            window.location = neweng[i + 2];
+          } else {
+            loc = neweng[i + 1]
+            window.location = loc.replace(/%s/, term);;
+          }
+        }
+      }
+
+
+
+      if (done == "no") {
+        window.location = "https://google.com/search?q=" + input;
+        done = "done";
+      }
     }
-  }
-}
-
-
-
-if (done == "no") {
-  window.location="https://google.com/search?q=" + input;
-  done = "done";
-}
-}
 
 
 
@@ -170,8 +206,8 @@ if (done == "no") {
     function delimit(a) {
       var b = new Array(0);
       if (/^\-t /.test(a)) {
-        d = a.replace(/^\-t (.*?) .*/,"$1");
-        b = a.replace(/^\-t (.*?) /,"").split(d);
+        d = a.replace(/^\-t (.*?) .*/, "$1");
+        b = a.replace(/^\-t (.*?) /, "").split(d);
       } else if (/\t/.test(a)) {
         b = a.split("\t");
       } else {
@@ -192,18 +228,18 @@ if (done == "no") {
     function stopWatch() {
       clearTimeout(window.clock);
       window.sec++;
-        if (window.sec >=59){
-          window.sec = 0;
-          min++;
-        }
-        if (min>=59){
-          min=0;
-          hour++;
-        }
+      if (window.sec >= 59) {
+        window.sec = 0;
+        min++;
+      }
+      if (min >= 59) {
+        min = 0;
+        hour++;
+      }
       document.getElementById("sec").innerHTML = (window.sec < 10) ? "0" + window.sec : window.sec;
       document.getElementById("min").innerHTML = (min < 10) ? "0" + min : min;
       document.getElementById("hour").innerHTML = (hour < 10) ? "0" + hour : hour;
-      window.clock = setTimeout("stopWatch()",1000);
+      window.clock = setTimeout("stopWatch()", 1000);
     }
 
     function pause() {
@@ -230,7 +266,7 @@ if (done == "no") {
     }
 
     function randgit() {
-      function init(){
+      function init() {
         var number = getRandomIntInclusive(0, 60000000);
         console.log(number);
 
@@ -238,7 +274,7 @@ if (done == "no") {
         xhr.open('GET', 'https://api.github.com/repositories', true);
         xhr.send();
 
-        xhr.onreadystatechange = function(e){
+        xhr.onreadystatechange = function (e) {
           openRepo(e, xhr)
         };
       }
@@ -249,7 +285,7 @@ if (done == "no") {
         return Math.floor(Math.random() * (max - min + 1)) + min;
       }
 
-      function openRepo (e, xhr){
+      function openRepo(e, xhr) {
         if (xhr.readyState == 4 && xhr.status == 200) {
           var full_name = JSON.parse(xhr.responseText)[0]['full_name'];
           location.href = 'https://github.com/' + full_name;
@@ -257,26 +293,35 @@ if (done == "no") {
       }
       init();
     }
-</script>
+  </script>
 </head>
-  <body style="background-color: black" onload="if (/\?/.test(location.href) == true){var varSection = window.location.search.substr(1); var varArray = varSection.split('&'); for(var v=0; v<varArray.length; v++) { var keyValueArray = varArray[v].split('=');if(keyValueArray[0]=='s') { var argu = keyValueArray[1]; var args = /\+/.test(argu)?argu.replace(/\+/g,' ').replace(/\s+$/,''):argu; celerate(decodeURIComponent(args)); done = 'done';}}}">
 
-    <div style="font-family: 'Verdana', cursive;color:white;" id="output">&nbsp;</div></center>
-    </div>
+<body style="background-color: black"
+  onload="if (/\?/.test(location.href) == true){var varSection = window.location.search.substr(1); var varArray = varSection.split('&'); for(var v=0; v<varArray.length; v++) { var keyValueArray = varArray[v].split('=');if(keyValueArray[0]=='s') { var argu = keyValueArray[1]; var args = /\+/.test(argu)?argu.replace(/\+/g,' ').replace(/\s+$/,''):argu; celerate(decodeURIComponent(args)); done = 'done';}}}">
 
-    <div id="container" style="color:white;margin: 0 auto; width: 300px; padding: 20px;">
+  <div style="font-family: 'Verdana', cursive;color:white;" id="output">&nbsp;</div>
+  </center>
+  </div>
+
+  <div id="container" style="color:white;margin: 0 auto; width: 300px; padding: 20px;">
     <div id="timer" style="color:white;display:none; position:absolute;">
-      <span style="color:white;font-size:small; float:right; cursor:pointer;" onclick='clearTimer();' title="click to close">x</span><br>
+      <span style="color:white;font-size:small; float:right; cursor:pointer;" onclick='clearTimer();'
+        title="click to close">x</span><br>
       <center>
         <span id="hour">00</span>:<span id="min">00</span>:<span id="sec">00</span><br><br>
-        <input type="button" style="background-color: white; color:black;border:none;"class="button" id="start" onClick="stopWatch()" accesskey='s' title="Shift+Alt+S" value="Start">
-        <input type="button" class="button" id="pause" onClick="pause()" accesskey='p' title="Shift+Alt+P" value="Pause">
-        <input type="button" class="button" id="play" onClick="play()" accesskey='o' title="Shift+Alt+O" value="Continue">
-        <input type="button" class="button" id="reset" onClick="reset()" accesskey='r' title="Shift+Alt+R" value="Reset">
+        <input type="button" style="background-color: white; color:black;border:none;" class="button" id="start"
+          onClick="stopWatch()" accesskey='s' title="Shift+Alt+S" value="Start">
+        <input type="button" class="button" id="pause" onClick="pause()" accesskey='p' title="Shift+Alt+P"
+          value="Pause">
+        <input type="button" class="button" id="play" onClick="play()" accesskey='o' title="Shift+Alt+O"
+          value="Continue">
+        <input type="button" class="button" id="reset" onClick="reset()" accesskey='r' title="Shift+Alt+R"
+          value="Reset">
       </center>
     </div>
   </div>
-  </body>
+</body>
+
 </html>
 
 
