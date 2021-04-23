@@ -259,7 +259,7 @@ if (done == "no") {
     }
 </script>
 </head>
-  <body style="background-color: black" onload="var geturl = location.href; if (/\?/.test(geturl) == true) { var args = /\?(.*)/.exec(geturl)[1]; args=/\+/.test(args)?args.replace(/\+/g,' ').replace(/\s+$/,''):args; celerate(decodeURIComponent(args)); done = 'done';}">
+  <body style="background-color: black" onload="if (/\?/.test(location.href) == true){var varSection = window.location.search.substr(1); var varArray = varSection.split('&'); for(var v=0; v<varArray.length; v++) { var keyValueArray = varArray[v].split('=');if(keyValueArray[0]=='s') { var argu = keyValueArray[1]; var args = /\+/.test(argu)?argu.replace(/\+/g,' ').replace(/\s+$/,''):argu; celerate(decodeURIComponent(args)); done = 'done';}}}">
 
     <div style="font-family: 'Verdana', cursive;color:white;" id="output">&nbsp;</div></center>
     </div>
@@ -280,5 +280,6 @@ if (done == "no") {
 </html>
 
 
+<script>
 
-
+</script>
